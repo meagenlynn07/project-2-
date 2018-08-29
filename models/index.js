@@ -39,4 +39,9 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+
+db.vendor = require('./vendor')(sequelize, Sequelize);
+db.vendorAdmin = require('./vendor-admin')(sequelize, Sequelize);
+db.search = require('./search')(sequelize, Sequelize);
+
 module.exports = db;
