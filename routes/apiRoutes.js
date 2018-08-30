@@ -1,24 +1,42 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all Vendors
+  app.get("/api/vendors", function(req, res) {
+    db.Vendor.findAll({}).then(function(dbVendors) {
+      res.json(dbVendors);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+   // Search functionality
+  app.get("/api/vendors/:category/:search", function(req, res) {
+    let search = req.params.category.search;
+    console.log(search);
+    db.Vendor.findAll({
+      where: {
+        vendorType: req.params.category,
+        [Sequelize.Op.or]: [
+          {name:       {[Sequelize.Op.like]: '%' + search + '%'}},
+          {description: {[Sequelize.Op.like]: '%' + search + '%'}},
+        ]
+      }
+     
+    }).then(function(dbVendors) {
+      res.json(dbVendors);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new Vendor
+  app.post("/api/Vendors", function(req, res) {
+    db.Vendor.create(req.body).then(function(dbVendor) {
+      res.json(dbVendor);
+    });
+  });
+
+  // Delete an Vendor by id
+  app.delete("/api/Vendors/:id", function(req, res) {
+    db.Vendor.destroy({ where: { id: req.params.id } }).then(function(dbVendor) {
+      res.json(dbVendor);
     });
   });
 };
