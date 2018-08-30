@@ -1,6 +1,16 @@
 var db = require("../models");
 
 
+
+module.exports = function(app) {
+  // Get all Vendors
+  app.get("/api/vendors", function(req, res) {
+    db.Vendor.findAll({}).then(function(dbVendors) {
+      res.json(dbVendors);
+    });
+  });
+
+
 module.exports = function (app) {
    // Search functionality
   app.get("/api/vendors/:category/:search", function(req, res) {
@@ -18,8 +28,27 @@ module.exports = function (app) {
       res.json(dbVendors);
     });
   });
+
+
+  // Create a new Vendor
+  app.post("/api/Vendors", function(req, res) {
+    db.Vendor.create(req.body).then(function(dbVendor) {
+      res.json(dbVendor);
+    });
+  });
+
+  // Delete an Vendor by id
+  app.delete("/api/Vendors/:id", function(req, res) {
+    db.Vendor.destroy({ where: { id: req.params.id } }).then(function(dbVendor) {
+      res.json(dbVendor);
+    });
+
+module.exports = function (app) {
+
+
  
  
+
   //display all vendors to the page
   app.get("/api/vendors", function(req, res) {
     db.Vendor.findAll({}).then(function(dbVendors) {
@@ -38,6 +67,11 @@ module.exports = function (app) {
   app.post('/api/newVendor', (req, res) =>{
     const newVendor = req.body;
     Vendors.create(vendor).then(() => res.json({success: true }))
+
+
+  });
+  //vendor Profile after log-in
+
   });
   //  app.post("/api/Vendors", function(req, res) {
   //   db.Vendor.create(req.body).then(function(dbVendor) {
@@ -45,6 +79,7 @@ module.exports = function (app) {
   //   });
   // });
   //vendor Profile 
+
   app.get('/api/vendorProfile/:vendorId', (req, res) => {
     Vendors.findById(req.params.vendorId).then(vendor => res.json(vendor));
   });
