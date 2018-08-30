@@ -1,6 +1,7 @@
 var db = require("../models");
 
 
+
 module.exports = function(app) {
   // Get all Vendors
   app.get("/api/vendors", function(req, res) {
@@ -9,6 +10,8 @@ module.exports = function(app) {
     });
   });
 
+
+module.exports = function (app) {
    // Search functionality
   app.get("/api/vendors/:category/:search", function(req, res) {
     let search = req.params.category.search;
@@ -21,11 +24,11 @@ module.exports = function(app) {
           {description: {[Sequelize.Op.like]: '%' + search + '%'}},
         ]
       }
-     
     }).then(function(dbVendors) {
       res.json(dbVendors);
     });
   });
+
 
   // Create a new Vendor
   app.post("/api/Vendors", function(req, res) {
@@ -42,9 +45,15 @@ module.exports = function(app) {
 
 module.exports = function (app) {
 
+
+ 
+ 
+
   //display all vendors to the page
-  app.get('/api/vendors', (req, res) => {
-    Vendors.findAll().then((vendors) => res.json(vendors));
+  app.get("/api/vendors", function(req, res) {
+    db.Vendor.findAll({}).then(function(dbVendors) {
+      res.json(dbVendors);
+    });
   });
   //search by vendor type
   app.get('/api/results/:vendorType', (req, res) => {
@@ -59,8 +68,18 @@ module.exports = function (app) {
     const newVendor = req.body;
     Vendors.create(vendor).then(() => res.json({success: true }))
 
+
   });
   //vendor Profile after log-in
+
+  });
+  //  app.post("/api/Vendors", function(req, res) {
+  //   db.Vendor.create(req.body).then(function(dbVendor) {
+  //     res.json(dbVendor);
+  //   });
+  // });
+  //vendor Profile 
+
   app.get('/api/vendorProfile/:vendorId', (req, res) => {
     Vendors.findById(req.params.vendorId).then(vendor => res.json(vendor));
   });
@@ -68,7 +87,11 @@ module.exports = function (app) {
   app.delete('/api/vendorProfile/:vendorId', (req, res) =>{
     Vendors.destroy({ where: {id: req.params.vendorId}})
       .then((affectedRows) => res.json(affectedRows));
-  })
+  });
+  // app.delete("/api/Vendors/:id", function(req, res) {
+  //   db.Vendor.destroy({ where: { id: req.params.id } }).then(function(dbVendor) {
+  //     res.json(dbVendor);
+  //   });
 };
 
 
