@@ -12,7 +12,7 @@ module.exports = function(app) {
   //Vendors referring to the name of the model
 app.get("/", (req, res) => {
     Vendors.findById(randInt(1, 3)).then((vendor) => {
-        res.render('index', { sample_vendor: vendor });
+        res.render('index', {sample_vendor: vendor});
     });
 });
 //static log-in page

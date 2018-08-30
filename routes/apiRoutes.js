@@ -1,42 +1,34 @@
-var db = require("../models");
+const db = require('../models');
 
 module.exports = function (app) {
 
-  //display all vendors to the page
+  // display all vendors to the page
   app.get('/api/vendors', (req, res) => {
     Vendors.findAll().then((vendors) => res.json(vendors));
   });
-  //search by vendor type
+  // search by vendor type
   app.get('/api/results/:vendorType', (req, res) => {
     Vendors.findById(req.params.vendorType).then(vendor => res.json(vendor));
   });
-  //search by vendor price
+  // search by vendor price
   app.get('/api/results/:price', (req, res) => {
     Vendors.findById(req.params.price).then(vendor => res.json(vendor));
   });
-  //create new vendor
+  // create new vendor
   app.post('/api/newVendor', (req, res) =>{
     const newVendor = req.body;
     Vendors.create(vendor).then(() => res.json({success: true }))
   });
-  //vendor Profile 
+  // vendor  Profile
   app.get('/api/vendorProfile/:vendorId', (req, res) => {
     Vendors.findById(req.params.vendorId).then(vendor => res.json(vendor));
   });
-  //delete vendor profile
+  // delete vendor profile
   app.delete('/api/vendorProfile/:vendorId', (req, res) =>{
-    Vendors.destroy({ where: {id: req.params.vendorId}})
+    Vendors.destroy({where: {id: req.params.vendorId}})
       .then((affectedRows) => res.json(affectedRows));
-  })
+  });
 };
-
-
-
-
-
-
-
-
 
 // Get all examples
   // app.get("/api/examples", function(req, res) {
