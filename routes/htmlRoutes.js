@@ -8,6 +8,7 @@ function randInt(min, max) {
 
 module.exports = function(app) {
   // Load search page page
+  // Load 3 random sample cards
   //sample_vendor referring to handlebars call {{#if sample_vendor}}
   //Vendors referring to the name of the model
 app.get("/", (req, res) => {

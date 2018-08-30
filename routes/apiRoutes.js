@@ -19,7 +19,7 @@ module.exports = function (app) {
     const newVendor = req.body;
     Vendors.create(vendor).then(() => res.json({success: true }))
   });
-  //vendor Profile 
+  //vendor Profile after log-in
   app.get('/api/vendorProfile/:vendorId', (req, res) => {
     Vendors.findById(req.params.vendorId).then(vendor => res.json(vendor));
   });
