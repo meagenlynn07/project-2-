@@ -1,6 +1,12 @@
 const db = require('../models');
+var path = require("path");
 
 module.exports = function (app) {
+  
+  app.get('/', (req, res) => {
+    // Vendors.findAll().then((vendors) => res.json(vendors));
+    res.sendFile(path.join(__dirname, "../index.html"));
+  });
 
   // display all vendors to the page
   app.get('/api/vendors', (req, res) => {
