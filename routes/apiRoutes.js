@@ -1,9 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
- 
-
   //display all vendors to the page
   app.get("/api/vendors", function(req, res) {
     db.Vendor.findAll({}).then(function(dbVendors) {

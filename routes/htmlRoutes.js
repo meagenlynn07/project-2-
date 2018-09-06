@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
         res.render('index', { sample_vendor: vendor });
     });
 });
+
 //static log-in page
   app.get("/login", (req, res) => {
     res.render("login");
