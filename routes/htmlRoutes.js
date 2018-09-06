@@ -12,7 +12,7 @@ module.exports = function(app) {
   //sample_vendor referring to handlebars call {{#if sample_vendor}}
   //Vendors referring to the name of the model
 app.get("/", (req, res) => {
-    Vendors.findById(randInt(1, 3)).then((vendor) => {
+    db.Vendors.findById(randInt(1, 3)).then((vendor) => {
         res.render('index', { sample_vendor: vendor });
     });
 });
