@@ -1,5 +1,2 @@
 DROP DATABASE IF EXISTS wedding_db;
 CREATE DATABASE wedding_db;
-
--- DROP DATABASE IF EXISTS testdb;
--- CREATE DATABASE testdb;

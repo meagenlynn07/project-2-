@@ -3,10 +3,30 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 
+  
+
+
+
+
+const distance = require('google-distance-matrix');
+const passport = require('passport');
+const session = require('express-session');
+
 const db = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
+// For Passport
+app.use(session({ 
+  secret: 'keyboard cat',
+  resave: true, 
+  saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+
 
 
 // Middleware
@@ -27,6 +47,11 @@ app.set('view engine', 'handlebars');
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
+  //for passport
+var authRoute = require('./routes/auth.js')(app,passport);
+
+//load passport strategies
+require('./config/passport/passport.js')(passport, db.user);
 const syncOptions = {force: false};
 
 // If running a test, set syncOptions.force to true
@@ -47,3 +72,5 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 module.exports = app;
+
+
