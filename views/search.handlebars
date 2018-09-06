@@ -1,0 +1,16 @@
+
+<h1>{{title}}</h1>
+<h1>hiii this is search page</h1>
+
+<p>{{searchResult.dataValues.fullName}}</p>
+
+<p>{{searchResult.dataValues}}</p>
+
+<p>{{searchResult.Vendor.dataValues.fullName}}</p>
+
+
+{{#each searchResult}}
+<p>{{searchResult.dataValues.fullName}}</p>
+{{/each}}
+
+<button><a href="/">Go home</a></button>

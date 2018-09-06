@@ -2,6 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+
+  
+
+
+
+
 const distance = require('google-distance-matrix');
 const passport = require('passport');
 const session = require('express-session');
@@ -19,6 +25,7 @@ app.use(session({
   saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
 
 
 
@@ -40,11 +47,11 @@ app.set('view engine', 'handlebars');
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
+  //for passport
 var authRoute = require('./routes/auth.js')(app,passport);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.user);
-
 const syncOptions = {force: false};
 
 // If running a test, set syncOptions.force to true

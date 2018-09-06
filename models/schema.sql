@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- DROP DATABASE IF EXISTS dtbdTest;
 -- CREATE DATABASE dtbdTest;
 
@@ -13,3 +14,7 @@ USE DATABASE dtbdTest;
     website VARCHAR NOT NULL ,
     zip CHAR(5)
 );
+=======
+DROP DATABASE IF EXISTS wedding_db;
+CREATE DATABASE wedding_db;
+>>>>>>> 8df9d048dc58f9be7a6ba1b46b73490ee322bbe0

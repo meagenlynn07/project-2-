@@ -1,4 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
+
+module.exports = function (sequelize, DataTypes) {
     const Vendor = sequelize.define("Vendor", {
         // vendor_id: {
         //     type: DataTypes.INTEGER,
@@ -6,12 +7,20 @@ module.exports = function(sequelize, DataTypes) {
         //     allowNull: false,
         //     primaryKey: true
         // },
+      
+       firstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
 
-        firstName:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            validate:{
-                len:[1]
             }
           },
         lastName:{
@@ -35,6 +44,28 @@ module.exports = function(sequelize, DataTypes) {
             //     len:[1]
             // }
         },
+       fullName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+      
+         vendorType: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        description: {
+            type: DataTypes.TEXT,
+            // allowNull:false,
+            // validate:{
+            //     len:[1]
+            // }
+        },
         // website: {
         //     type: DataTypes.STRING,
         //     validate: {
@@ -43,50 +74,33 @@ module.exports = function(sequelize, DataTypes) {
         // },
         email: {
             type: DataTypes.STRING,
-            isUnique :true,
-            allowNull:false,
-            validate: {
-                isEmail : true
-            }
+            // isUnique :true,
+            allowNull: false
+            // validate: {
+            //     isEmail : true
+            // }
         },
-        State:{
+        State: {
             type: DataTypes.STRING,
             // isUnique :true,
-            allowNull:false
+            allowNull: false
         },
-        City:{
+        City: {
             type: DataTypes.STRING,
             // isUnique :true,
-            allowNull:false
-
+            allowNull: false
+          
         },
         zip: {
             type: DataTypes.INTEGER,
             validate: {
-                len: [5, 5]
-            }
-        },
-        username: {
-            type: DataTypes.STRING,
-            isUnique :true,
-            allowNull:false,
-            validate: {
-                len: [1]
+                len: [1, 5]
             }
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false
         }
-        
-            // hooks: {
-            //   beforeCreate: (vendor, options) => {
-            //     return hashPassword(vendor.password).then(hashedPw => {
-            //         vendor.password = hashedPw;
-            //       });
-            //   }
-            // }      
-        
     });
     return Vendor;
-  };
+};
