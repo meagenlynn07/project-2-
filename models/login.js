@@ -1,35 +1,34 @@
-module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
-  });
-  return Example;
-};
+// module.exports = function(sequelize, DataTypes) {
+//   var Example = sequelize.define("Example", {
+//     text: DataTypes.STRING,
+//     description: DataTypes.TEXT
+//   });
+//   return Example;
+// };
 
 
 //if we were to do a seperate login model:
+
+
 module.exports = (sequelize, DataTypes) => {
-  var Login = sequelize.define('login', {
-    //   user_id: {
-    //       type: DataTypes.INTEGER
-    //   },
-      username: {
+  var Login = sequelize.define('Login', {
+    
+      EmailAddress: {
           type: DataTypes.STRING,
-          isEmail: true
+          isEmail: true,
+          allowNull:false,
+          validate: {
+            len: [1]
+          }
       },
       password: {
-          type: DataTypes.STRING
+          type: DataTypes.STRING,
+          allowNull:false,
+          validate: {
+            len: [1]
+          }
       },
-      vendor_id: {
-          type: DataTypes.INTEGER
-      }
   }
-  
-//   , {
-//       underscored: true,
-//       freezeTableName: true
-//   }
-
 );
 
 //   Login.associate = function(models) {
