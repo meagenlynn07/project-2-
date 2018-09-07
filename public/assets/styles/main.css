@@ -1,6 +1,5 @@
 /* No CSS */
 /*COLORS*/
-/* No CSS */
 .footer {
   position: fixed;
   left: 0;
@@ -16,5 +15,12 @@
   background-image: url("../../../Images/footer_bg.jpg");
   background-size: cover;
   background-position: 50% 50%;
+}
+
+.wrapper--form {
+  width: 90%;
+  max-width: 980px;
+  padding: 7px;
+  margin: 5% auto;
 }
 /*# sourceMappingURL=main.css.map */
