@@ -8,30 +8,42 @@ function randInt(min, max) {
 };
 
 module.exports = function (app) {
+    
    
     app.get('/', (req, res) => {
       // Vendors.findAll().then((vendors) => res.json(vendors));
       //res.sendFile(path.join(__dirname, "main.handlebars"));
-      res.render("index");
+      res.render("index",
+      {
+        title: 'Home'
+      });
     });
 
   //home
   app.get("/home", (req, res) => {
     console.log("index handlebars");
-    res.render("index");
+    res.render('index', {
+      title: 'Home'
+    });
   });
 
 
   //login
     app.get("/login", (req, res) => {
       console.log("login handlebars");
-      res.render("login");
+      res.render('login', {
+        title: 'Login',
+        // stylesheet: 'login',
+        // script: 'login'
+      });
     });
 
 //register
   app.get("/register", (req, res) => {
     console.log("register handlebars");
-    res.render("register");
+    res.render('register', {
+        title: 'Register',
+      });
   });
 
 //register
