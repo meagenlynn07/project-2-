@@ -1,0 +1,20 @@
+/* No CSS */
+/*COLORS*/
+/* No CSS */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 13px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.wrapper--footer {
+  background-image: "../../../Images/footer_bg.jpg";
+  background-size: cover;
+  background-position: 50% 50%;
+}
+/*# sourceMappingURL=main.css.map */

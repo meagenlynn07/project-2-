@@ -1,137 +1,30 @@
- <div id="pageintro" class="hoc clear">
-      <!-- ################################################################################################ -->
-      <div class="flexslider basicslider">
-        <ul class="slides">
-          <li>
-            <article>
-              <!-- <p>Egestas</p> -->
-              <h3 class="heading">Find your wedding team!!</h3>
-              <p>It is the day All for you.</p>
-              <footer>
-                <form class="group" method="post" action="#">
-                  <fieldset>
-                    <legend>Sign-Up:</legend>
-                    <input type="text" value="" id="searhInput" placeholder="Local Vendors &hellip;">
-                    <button class="fa fa-sign-in" id="searchSubmit" type="submit" title="Submit"><em>Submit</em></button>
-                  </fieldset>
-                </form>
-              </footer>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3 class="heading">To be a special member</h3>
-              <p>pay less more happy</p>
-              <footer><a class="btn inverse" href="/register">Join</a></footer>
-            </article>
-          </li>
-        </ul>
+{{title="Date to be Determined Home" }}
+
+ {{!-- add stylesheets unique to this page --}}
+  {{#*inline "head-block"}}
+    <link rel="stylesheet" href="./public/assets/styles/pages/home.css">
+  {{/inline}}
+
+   <div id="changeBack" class="bgded overlay slider_container">
+        <div class="wrapper row1">
+          <div id="pageintro" class="hoc clear">
+
+          {{!-- Global Hero Slider Partial (partials/hero-slider.handlebars) --}}
+          {{>hero-slider }}
+        </div>
       </div>
-      <!-- ################################################################################################ -->
     </div>
-    <!-- ################################################################################################ -->
-  </div>
-  <!-- End Top Background Image Wrapper -->
-  <!-- ################################################################################################ -->
+
   <div class="wrapper row3 coloured">
     <main class="hoc container clear">
-      <!-- main body -->
-      <!-- ################################################################################################ -->
-      <div id="introblocks">
-        <ul class="nospace group">
-          <li class="one_third first">
-            <article>
-              <div>
-                <!-- <h6 class="heading">1</h6> -->
-                <h2>Wedding Photographers</h2>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <p>We got married this past October and were so pleased with both the photographer and the company.
-                  I had 3 months to get everything to get and had no idea what I was doing. [&hellip;]</p>
-              </div>
-              <img src="./Images/review_1.jpg" alt="reviewer_1">
-              <!-- <footer><a href="#">More Details</a></footer> -->
-            </article>
-          </li>
-          <li class="one_third">
-            <article>
-              <div>
-                <!-- <h6 class="heading">2</h6> -->
-                <h2>Events & Design</h2>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <p>I cannot believe how lucky I got with Rachel. She was so detail oriented,
-                  kept everyone on time, and managed the wedding like an all star.
-                  She helped me to be more organized and also helped with finalizing all the minor details. [&hellip;]</p>
-              </div>
-              <img src="./Images/review_2.jpg" alt="reviewer_2">
-              <!-- <footer><a href="#">More Details</a></footer> -->
-            </article>
-          </li>
-          <li class="one_third">
-            <article>
-              <div>
-                <!-- <h6 class="heading">3</h6> -->
-                <h2>Ashton Gardens</h2>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <p>I got married here last Saturday noon!
-                  I’m still on a wedding high! Everything was great from venue to food to coordinator Christiana!
-                  Everything was wonderful and beautiful! Guest are still speaking on the wedding!!! [&hellip;]</p>
-              </div>
-              <img src="./Images/review_3.jpg" alt="reviewer_3">
-              <!-- <footer><a href="#">More Details</a></footer> -->
-            </article>
-          </li>
-        </ul>
-      </div>
+        {{!-- Global Reviews Partial (partials/reviews.handlebars) --}}
+        {{>reviews }}
       <p class="center"><a class="btn inverse" href="#">SEE ALL WINNERS</a></p>
-      <!-- ################################################################################################ -->
-      <!-- / main body -->
       <div class="clear"></div>
     </main>
   </div>
 
-
-{{!-- <div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../public/assets/js/index.js"></script> --}}
+{{!-- add scripts unique to this page --}}
+{{!-- {{#*inline "scripts-block"}}
+   <script src="./public/assets/js/login.js"></script>
+{{/inline}} --}}

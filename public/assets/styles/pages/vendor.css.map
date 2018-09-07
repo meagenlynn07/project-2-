@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,YAAY;AAAA,yCAAyC;AAErD,UAAU;ADAV,wBAAwB",
+    "sources": [
+        "vendor.scss",
+        "../sass/_variables.scss"
+    ],
+    "names": [],
+    "file": "vendor.css"
+}
