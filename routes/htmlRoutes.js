@@ -20,8 +20,8 @@ module.exports = function (app) {
 
     app.get('/', (req, res) => {
       // Vendors.findAll().then((vendors) => res.json(vendors));
-      //res.sendFile(path.join(__dirname, "index.html"));
-      res.render("index");
+      res.sendFile(path.join(__dirname, "main.handlebars"));
+      //res.render("index");
     });
 
 
