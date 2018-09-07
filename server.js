@@ -2,11 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
+
+  
+
+
+
 
 const distance = require('google-distance-matrix');
 const passport = require('passport');
-const session = require('express-session');
-const hbs = exphbs.create({ /* config */ });
 
 const db = require('./models');
 
@@ -15,30 +19,26 @@ const PORT = process.env.PORT || 3000;
 
 
 // For Passport
-app.use(session({ 
-  secret: 'keyboard cat',
-  resave: true, 
-  saveUninitialized:true})); // session secret
+
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+app.use(passport.session());
+
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-path = require('path');
-app.use(express.static(path.join(__dirname, '/')));
-
 // Handlebars
 app.engine(
   'handlebars',
   exphbs({
     defaultLayout: 'main',
-    partialsDir: __dirname + '/views/partials'
   })
 );
 app.set('view engine', 'handlebars');
+// app.set('views', path.join(__dirname, 'views'));
 
 // Routes
 require('./routes/apiRoutes')(app);
