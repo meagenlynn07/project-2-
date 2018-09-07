@@ -11,7 +11,7 @@
  
  .wrapper {
      &--footer {
-         background-image: "../../../Images/footer_bg.jpg";
+         background-image: url( "../../../Images/footer_bg.jpg");
          background-size: cover;
          background-position: 50% 50%;
      }
