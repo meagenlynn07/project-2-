@@ -3,11 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 
-  
-
-
-
-
 const distance = require('google-distance-matrix');
 const passport = require('passport');
 const session = require('express-session');
