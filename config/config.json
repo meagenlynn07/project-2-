@@ -10,10 +10,9 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "testdb",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
+    "database": "wedding_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
