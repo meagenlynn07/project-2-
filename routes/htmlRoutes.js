@@ -93,7 +93,7 @@ app.get("/results/:vendorType/:searchInput", (req, res) => {
     where: {
       vendorType: vendorType,
       description: {
-        $like: `"%${searchTerm}%"`
+        $like: `%${searchTerm}%`
       }
     }
   }).then(function (data) {
