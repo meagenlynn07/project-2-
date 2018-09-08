@@ -5,27 +5,30 @@
 {{/inline}}
 
 
-<h1>Hiiiiii  {{title}}</h1>
+{{!-- <h1> {{title}}</h1> --}}
 
 <p> {{vendorInfo.Vendor.dataValues.fullName}}</p>
-
+<div>
+    <img src=""> 
+</div>
 <ul>
        
-        <p>id : {{vendorInfo.dataValues.id}}</p>
-        <p>firstName: {{vendorInfo.dataValues.firstName}}</p>
-        <p>lastName : {{vendorInfo.dataValues.lastName}}</p>
-        <p>fullName :{{vendorInfo.dataValues.fullName}}</p>
-        <p>vendorType : {{vendorInfo.dataValues.vendorType}}</p>
-        <p>description : {{vendorInfo.dataValues.description}}</p>
-        <p>email : {{vendorInfo.dataValues.email}}</p>
-        <p>State : {{vendorInfo.dataValues.State}}</p>
-        <p>City : {{vendorInfo.dataValues.City}}</p>
-        <p>zip : {{vendorInfo.dataValues.zip}}</p>
-        <p>password : {{vendorInfo.dataValues.password}}</p>
+        {{!-- <p>id : {{vendorInfo.dataValues.id}}</p> --}}
+        <h1 class= "name">{{vendorInfo.dataValues.firstName}} {{vendorInfo.dataValues.lastName}}</h1>
+        <p>{{vendorInfo.dataValues.vendorName}}</p>
+        <h6>Here for brides looking for a <strong>{{vendorInfo.dataValues.vendorType}}</strong></h6>
+        <p class="description">{{vendorInfo.dataValues.description}}</p>
+        <br>
+        <h7>{{vendorInfo.dataValues.fullName}},</h7>
+        <a href="vendorInfo.dataValues.email">{{vendorInfo.dataValues.email}}</a>
+        <p class="address"> {{vendorInfo.dataValues.State}}, {{vendorInfo.dataValues.City}} {{vendorInfo.dataValues.zip}}</p>
+ 
+        {{!-- <p>password : {{vendorInfo.dataValues.password}}</p> --}}
 </ul>
 
 
 {{!-- add scripts unique to this page --}}
 {{#*inline "scripts-block"}}
+  <script type="text/javascript" src="./public/assets/js/upload.js"></script>
    <script src="/public/assets/js/register.js"></script>
 {{/inline}}
