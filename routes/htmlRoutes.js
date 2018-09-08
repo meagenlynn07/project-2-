@@ -80,18 +80,20 @@ app.get("/gallery", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/pages/maintenance.html"));
   });
 
-      // search by vendor type
- app.get("/results/:vendorType/:searchInput", (req, res) => {
+// search by vendor type
+
+//SELECT `id`, `firstName`, `lastName`, `vendorType`, `vendorName`, `description`, `fullName`, `email`, `State`, `City`, `zip`, `password`, `createdAt`, `updatedAt` FROM wedding_db.vendors WHERE vendorType = 'photographer' AND description LIKE '%lobster%';
+app.get("/results/:vendorType/:searchInput", (req, res) => {
   console.log("=================================");
-  console.log("searchInput: " , req.params.searchInput);
+  console.log("searchInput: " , req.params.searchInput + " vendorType: " + req.params.vendorType);
   var searchTerm = req.params.searchInput;
   var vendorType = req.params.vendorType;
   console.log("what is this: " ,typeof(searchTerm));
   db.Vendor.findAll({
     where: {
-      vendorType:vendorType,
+      vendorType: vendorType,
       description: {
-        $like: '%searchInput%'
+        $like: `"%${searchTerm}%"`
       }
     }
   }).then(function (data) {
