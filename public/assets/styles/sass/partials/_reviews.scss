@@ -1,0 +1,12 @@
+.review {
+    &--img{
+        padding: 0;
+        max-height: 200px;
+        overflow: hidden;
+        background-position: 50% 0;
+    }
+    &--body {
+        padding:30px 20px;
+        min-height:220px;
+    }
+}

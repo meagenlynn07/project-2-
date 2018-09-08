@@ -45,4 +45,4 @@ module.exports = function (app) {
     Vendors.destroy({where: {id: req.params.vendorId}})
       .then((affectedRows) => res.json(affectedRows));
   });
-};
+}

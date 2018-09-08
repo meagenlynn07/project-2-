@@ -2,7 +2,7 @@ var imgSrcs = ["../../Images/1.jpg", "../../Images/2.jpg", "../../Images/3.jpg" 
 setInterval(function() {
     $("#changeBack").css("background", "url(" + imgSrcs[imgSrcs.push(imgSrcs.shift())-1] + ")");
     $("#changeBack").css("background-size","100% 100%");
-}, 5000); // 每5秒自动切换背景图片
+}, 5000); // 每5秒自动切换背景图片  
 
 
 
