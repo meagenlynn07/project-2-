@@ -14,3 +14,10 @@ h4, p, a, h4.heading {
     font-family: $font-sansserif;
     text-transform:none;
 }
+
+.name{
+    float: left;
+}
+.description {
+    font-style: italic;
+}

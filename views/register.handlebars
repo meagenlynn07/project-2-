@@ -7,10 +7,15 @@
 <div class="wrapper--form">
      {{!-- Global Register Form Partial (partials/form-register.handlebars) --}}
      {{>form-register }}
+      <div class="dropzone">
+        <div class="info"></div>
+    </div>
+    
 </div>
 
 {{!-- add scripts unique to this page --}}
 {{#*inline "scripts-block"}}
+<script type="text/javascript" src="/assets/js/imgur.js"></script>
    <script src="/assets/js/register.js"></script>
 {{/inline}}
 
