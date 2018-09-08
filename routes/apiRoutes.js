@@ -7,8 +7,10 @@ module.exports = function (app) {
    app.post('/api/newVendor', (req, res) =>{
     const newVendor = req.body;
     console.log("newVendor: " ,newVendor);
-    db.Vendor.create(newVendor).then(() => res.json({success: true , fullName:newVendor.fullName }));
-    res.redirect("/api/vendorProfile/:vendorId?", 200);
+    db.Vendor.create(newVendor).then(() => 
+
+    res.json({success: true , fullName:newVendor.fullName }));
+    // res.redirect("/vendors/" + newVendor.fullName));
   });
 
    // display all vendors to the page in json type
