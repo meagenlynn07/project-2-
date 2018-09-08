@@ -23,7 +23,7 @@ app.use(passport.session());
 // Middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 path = require('path');	
 app.use(express.static(path.join(__dirname, 'public')));	

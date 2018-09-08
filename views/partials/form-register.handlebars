@@ -48,21 +48,28 @@
 
     </div>
     <div class="form-row">
-        <div class="col-md-6 mb-3">
+         <div class="col-md-3 mb-6">
+            <label for="vendorName">Business Name</label>
+            <input type="text" class="form-control" id="vendorName" placeholder="Business Name" required>
+            <div class="invalid-feedback">
+                Please provide a valid Business Name.
+            </div>
+        </div>
+        <div class="col-md-3 mb-6">
             <label for="city">City</label>
             <input type="text" class="form-control" id="city" placeholder="City" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>
         </div>
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-6">
             <label for="state">State</label>
             <input type="text" class="form-control" id="state" placeholder="State" required>
             <div class="invalid-feedback">
                 Please provide a valid state.
             </div>
         </div>
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-6">
             <label for="zip">Zip</label>
             <input type="text" class="form-control" id="zip" placeholder="Zip" required>
             <div class="invalid-feedback">
@@ -149,7 +156,7 @@ $(document).ready(function () {
 
         console.log("second one :" + firstName, lastName, fullName, vendorType, vendorName, description, email, state, city, zip, password);
 
-        if (!firstName || !lastName || !vendorType || || !vendorName || !email || !city || !state || !zip || !password)
+        if (!firstName || !lastName || !vendorType || !vendorName || !email || !city || !state || !zip || !password)
             return;
 
         insertVendor({
@@ -167,23 +174,16 @@ $(document).ready(function () {
         })
     };
 
-
-
-
-
     function insertVendor(VendorData) {
         $.post("/api/newVendor", VendorData).then(function (result) {
             console.log("what is this: ", result.success);
             if (result.success) {
-
                 console.log(result.id);
                 console.log("good");
                 var fullName = result.fullName;
                 //getVendorInfor(fullName);
-                // window.location.replace("/vendors/" + fullName);
-                var url = `document.location.href+&${fullName}`
-                        document.location = url;
-                });
+               window.location.replace("/vendors/" + fullName);
+            
             } else {
                 console.log("bad");
             }
