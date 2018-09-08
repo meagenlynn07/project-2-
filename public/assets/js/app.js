@@ -10,25 +10,23 @@ $(document).ready(function(){
 
     $("#searchSubmit").on("click",function(event){
         event.preventDefault();
-    var searchInput = $("#searhInput").val().trim();
-    
-
-    $.get("/results/" + searchInput , function(result){
+        var searchInput = $("#searhInput").val().trim();
+        var vendorType = $('#vendorType option:selected').val().toLowerCase();
+        console.log(vendorType + " " + searchInput);
+    $.get("/results/" + vendorType + "/" + searchInput , function(result){
         // console.log("searchInputtttttt: " , searchInput);
         console.log(result);
         // console.log(result.dataInfo[0].vendorType);
 
-        if(result.seccess){
+        if(result.success){
             console.log("good");
             showAllVendor(result.dataInfo[0].vendorType);
-        }else{
+        } else{
             alert("we don't have that Vendors");
+            noResult();
         }
 
-    })
-       
-      
-        
+        }) 
     });
 
 
@@ -36,6 +34,9 @@ $(document).ready(function(){
         window.location.replace("/show/" + vendorType);
     }
 
+    function noResult(searchInput){
+        $('#searchFail').addClass('show');
+    }
 
 
 

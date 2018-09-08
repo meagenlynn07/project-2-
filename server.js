@@ -4,11 +4,6 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 
-  
-
-
-
-
 const distance = require('google-distance-matrix');
 const passport = require('passport');
 
@@ -16,7 +11,6 @@ const db = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 
 // For Passport
 

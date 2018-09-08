@@ -46,12 +46,12 @@ File: Layout CSS
 
 #pageintro li article{display:block; max-width:75%; margin:0 auto; text-align:center;}
 #pageintro li article *{margin:0;}
-#pageintro li p:first-of-type{margin-bottom:10px; font-style:italic;}
-#pageintro li .heading{margin-bottom:30px; font-size:3rem; word-wrap:break-word;}
+#pageintro li p:first-of-type{margin-bottom:10px; }
+#pageintro li .heading{margin-bottom:10px; font-size:3rem; word-wrap:break-word;}
 #pageintro li p:nth-of-type(2){line-height:1.5rem;}
 #pageintro li footer{margin-top:40px;}
 
-#pageintro footer form{display:block; position:relative; max-width:50%; margin:0 auto; overflow:hidden;}
+#pageintro footer form{display:block; position:relative; max-width:60%; margin:0 auto; overflow:hidden;}
 #pageintro footer input, #pageintro footer button{display:block; height:44px; border:none; border-radius:22px;}
 #pageintro footer input{width:100%; padding:5px 40px 5px 15px;}
 #pageintro footer button{position:absolute; top:1px; right:1px; width:42px; height:42px; font-size:16px; cursor:pointer; border-radius:50%;}
