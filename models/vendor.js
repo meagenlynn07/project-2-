@@ -1,5 +1,6 @@
 
 module.exports = function (sequelize, DataTypes) {
+
     const Vendor = sequelize.define("Vendor", {
         // vendor_id: {
         //     type: DataTypes.INTEGER,

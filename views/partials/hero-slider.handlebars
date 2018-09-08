@@ -9,8 +9,24 @@
                 <form class="group" method="post" action="#">
                   <fieldset>
                     {{!-- <legend>Sign-Up:</legend> --}}
-                    <input type="text" value="" id="searhInput" placeholder="Search Local Vendors &hellip;">
-                    <button class="fa fa-sign-in" id="searchSubmit" type="submit" title="Submit"><em>Submit</em></button>
+                    
+                    <div class="search--buttons">
+                      <div class="search--input">
+                        <select class="form-control" id="vendorType">
+                        <option id="null">Select a Vendor Type</option>
+                        <option id="photographers">Photographers</option>
+                        <option id="cakes">Cakes</option>
+                        <option id="dresses">Dresses</option>
+                        <option id="catering">Catering</option>
+                        <option id="venues">Venues</option>
+                      </select>
+                      </div>
+                       <div class="search--input">
+                          <input type="text" value="" id="searhInput" placeholder="Search Local Vendors &hellip;">
+                           <button class="fa fa-sign-in" id="searchSubmit" type="submit" title="Submit"><em>Submit</em></button> 
+                      </div>
+                      
+                    </div>
                   </fieldset>
                    <div class="reg-login-links">
                   <a class="button button--signin button--login" href="/login">Login</a> <a class="button button--signin button--register" href="/register">Register</a>

@@ -10,6 +10,22 @@
           box-shadow: #666 0 0 5px;
 }
 
+.search--buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search--input {
+  padding: 0 10px;
+}
+
 div#changeBack {
   background: url(../../Images/1.jpg);
 }

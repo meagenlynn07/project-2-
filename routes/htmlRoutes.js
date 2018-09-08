@@ -1,12 +1,12 @@
 var db = require("../models");
 var path = require("path");
 
+
 function randInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
 
 module.exports = function (app) {
     
@@ -90,21 +90,27 @@ app.get("/register", (req, res) => {
 
 
       // search by vendor type
-      app.get("/results/:searchInput", (req, res) => {
+      app.get("/results/:vendorType/:searchInput", (req, res) => {
+ 
         console.log("=================================");
         console.log("searchInput: " , req.params.searchInput);
-        var photographer_1 = req.params.searchInput;
-        console.log("what is this: " ,typeof(photographer_1));
+        var searchTerm = req.params.searchInput;
+        var vendorType = req.params.vendorType;
+        console.log("what is this: " ,typeof(searchTerm));
         db.Vendor.findAll({
           where: {
-            vendorType:photographer_1
+            vendorType:vendorType,
+            description: {
+             $like: '%searchInput%'
+            }
+
           }
         }).then(function (data) {
           console.log(typeof(data) , data);
           if(data == {} || data == [] || data == "" || data == null){
-            res.json({seccess:false});
+            res.json({success:false});
           }else{
-            res.json({seccess:true , dataInfo: data});
+            res.json({success:true , dataInfo: data});
           }
           // console.log("hiiiii: " , data)
             // res.json({
@@ -123,7 +129,7 @@ app.get("/register", (req, res) => {
 
       //search by vendor type
       app.get("/show/:vendorType" , function(req , res){
-        console.log("searchInput: " , req.params.vendorType);
+        console.log("vendorType: " , req.params.vendorType);
         db.Vendor.findAll({
           where: {
             vendorType:req.params.vendorType
@@ -140,12 +146,12 @@ app.get("/register", (req, res) => {
     });
 
        // test for search by vendor type
-       app.get("/results/photographer", (req, res) => {
-        // console.log("searchInput: " , req.params.searchInput);
-        var photographer_1 = "photographer";
+       app.get("/results/photographers", (req, res) => {
+        // console.log("searchInput: " , req.params.vendorType);
+        var vendorType = "photographer";
         db.Vendor.findAll({
           where: {
-            vendorType:photographer_1
+            vendorType:vendorType
           }
         }).then(function (data) {
           // console.log("hiiiii: " , data)
@@ -173,5 +179,4 @@ app.get("/register", (req, res) => {
 
 
     };
-
 

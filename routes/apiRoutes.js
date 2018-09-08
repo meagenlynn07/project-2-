@@ -16,7 +16,6 @@ module.exports = function (app) {
     db.Vendor.findAll().then((vendors) => res.json(vendors));
   });
   
-
     // display vendor Profile by ID
     app.get('/api/vendorProfile/:vendorId?', (req, res) => {
       db.Vendor.findById(req.params.vendorId).then(vendor => res.json(vendor));
@@ -32,7 +31,7 @@ module.exports = function (app) {
         }
       }).then(function(result){
         res.json({success: true , data:result});
-      })
+      });
     });
 
   // search by vendor price

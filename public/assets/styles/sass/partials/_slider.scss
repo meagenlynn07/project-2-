@@ -5,6 +5,16 @@
     background-color: #f5f5f5;
     box-shadow: #666 0 0 5px;
   }
+  .search {
+    &--buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &--input {
+        padding: 0 10px;
+    }
+  }
 
 div#changeBack {
     background: url(../../Images/1.jpg);
