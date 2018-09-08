@@ -39,6 +39,11 @@
   text-align: right;
 }
 
+header#top {
+  -webkit-box-shadow: 1px 1px 40px 0px rgba(102, 119, 188, 0.25);
+          box-shadow: 1px 1px 40px 0px rgba(102, 119, 188, 0.25);
+}
+
 .wrapper--form {
   width: 90%;
   max-width: 980px;
@@ -78,6 +83,14 @@ div#changeBack {
   background-size: 100% 100%;
   -webkit-transition: 0.03s ease;
   transition: 0.03s ease;
+}
+
+.reg-login-links {
+  margin-top: 10px;
+}
+
+.reg-login-links a {
+  padding: 5px;
 }
 
 @-webkit-keyframes round {

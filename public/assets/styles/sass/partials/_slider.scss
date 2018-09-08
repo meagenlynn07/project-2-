@@ -18,6 +18,12 @@ div#changeBack {
     transition: 0.03s ease;
 }
 
+.reg-login-links {
+    margin-top: 10px;
+    a {
+        padding: 5px;
+    } 
+}
 
 @-webkit-keyframes round {
     4% {
