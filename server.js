@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const hbs = exphbs.create({ /* config */ });
 
 const distance = require('google-distance-matrix');
 const passport = require('passport');
@@ -24,11 +25,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+path = require('path');	
+app.use(express.static(path.join(__dirname, 'public')));	
+
 // Handlebars
 app.engine(
   'handlebars',
   exphbs({
     defaultLayout: 'main',
+    partialsDir: __dirname + '/views/partials'
   })
 );
 app.set('view engine', 'handlebars');
