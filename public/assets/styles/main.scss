@@ -1,0 +1,16 @@
+@import "sass/variables";
+@import "sass/partials/footer";
+@import "sass/partials/nav";
+@import "sass/partials/buttons";
+@import "sass/partials/forms";
+@import "sass/partials/reviews";
+@import "sass/partials/slider";
+
+h1, h2, h3, h3.heading {
+    font-family: $font-script;
+    text-transform:none;
+}
+h4, p, a, h4.heading {
+    font-family: $font-sansserif;
+    text-transform:none;
+}

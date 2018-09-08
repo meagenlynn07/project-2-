@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,YAAY;AAAA,yCAAyC;AAErD,UAAU",
+    "sources": [
+        "register.scss",
+        "../sass/_variables.scss"
+    ],
+    "names": [],
+    "file": "register.css"
+}

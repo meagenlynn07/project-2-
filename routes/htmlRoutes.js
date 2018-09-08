@@ -31,40 +31,57 @@ app.get("/", (req, res) => {
 };
 =======
 module.exports = function (app) {
-    // Load search page page
-    //sample_vendor referring to handlebars call {{#if sample_vendor}}
-    //Vendors referring to the name of the model
-
-    // app.get("/", (req, res) => {
-    //     Vendors.findById(randInt(1, 3)).then((vendor) => {
-    //         res.render('index', {sample_vendor: vendor});
-    //     });
-    // });
-
+    
+   
     app.get('/', (req, res) => {
       // Vendors.findAll().then((vendors) => res.json(vendors));
-      res.sendFile(path.join(__dirname, "index.html"));
+      //res.sendFile(path.join(__dirname, "main.handlebars"));
+      res.render("index",
+      {
+        title: 'Home'
+      });
     });
 
+  //home
+  app.get("/home", (req, res) => {
+    console.log("index handlebars");
+    res.render('index', {
+      title: 'Home'
+    });
+  });
 
 
-    //static log-in page
+  //login
     app.get("/login", (req, res) => {
-      console.log("================================");
-      res.render("login");
+      console.log("login handlebars");
+      res.render('login', {
+        title: 'Login',
+        // stylesheet: 'login',
+        // script: 'login'
+      });
     });
+
+//register
+  app.get("/register", (req, res) => {
+    console.log("register handlebars");
+    res.render('register', {
+        title: 'Register',
+      });
+  });
+
+//register
+app.get("/register", (req, res) => {
+  console.log("gallery handlebars");
+  res.render("gallery");
+});
 
 
 
     app.get("/hi", (req, res) => {
-      console.log("================================");
+      console.log("HI");
       res.send("hiii")
     });
     
-
-    app.get("/register", (req, res) => {
-      res.render("register");
-    });
 
     app.get("/vendors/:fullName", (req, res) => {
 
@@ -144,9 +161,6 @@ module.exports = function (app) {
 
     });
 
-
-
-
        // test for search by vendor type
        app.get("/results/photographer", (req, res) => {
         // console.log("searchInput: " , req.params.searchInput);
@@ -172,13 +186,6 @@ module.exports = function (app) {
           }
         );
       });
-
-
-
-
-
-
-
 
 
     // Render 404 page for any unmatched routes
