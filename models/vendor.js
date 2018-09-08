@@ -2,13 +2,6 @@
 module.exports = function (sequelize, DataTypes) {
 
     const Vendor = sequelize.define("Vendor", {
-        // vendor_id: {
-        //     type: DataTypes.INTEGER,
-        //     autoIncrement: true,
-        //     allowNull: false,
-        //     primaryKey: true
-        // },
-      
        firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -24,19 +17,19 @@ module.exports = function (sequelize, DataTypes) {
 
             }
           },
-        lastName:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            validate:{
-                len:[1]
-            }
-          },
         vendorType :{
               type:DataTypes.STRING,
               allowNull:false,
               validate:{
                   len:[1]
               }
+          },
+          vendorName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
           },
         description :{
             type:DataTypes.TEXT,
@@ -51,21 +44,6 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        },
-      
-         vendorType: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        description: {
-            type: DataTypes.TEXT,
-            // allowNull:false,
-            // validate:{
-            //     len:[1]
-            // }
         },
         // website: {
         //     type: DataTypes.STRING,

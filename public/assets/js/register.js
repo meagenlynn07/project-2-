@@ -28,6 +28,7 @@ $(document).ready(function () {
         var firstName = $("#firstName").val().trim();
         var lastName = $("#lastName").val().trim();
         var vendorType = $("#vendorType").val();
+        var vendorName = $("#vendorName").val();
         var description = $("#description").val();
         var email = $("#email").val().trim();
         var state = $("#state").val().trim();
@@ -36,9 +37,9 @@ $(document).ready(function () {
         var password = $("#password").val().trim();
         var fullName = firstName + lastName;
 
-        console.log("second one :" + firstName, lastName, fullName, vendorType, description, email, state, city, zip, password);
+        console.log("second one :" + firstName, lastName, fullName, vendorType, vendorName, description, email, state, city, zip, password);
 
-        if (!firstName || !lastName || !vendorType || !email || !city || !state || !zip || !password)
+        if (!firstName || !lastName || !vendorType || || !vendorName || !email || !city || !state || !zip || !password)
             return;
 
         insertVendor({
@@ -46,6 +47,7 @@ $(document).ready(function () {
             lastName: lastName,
             fullName: fullName,
             vendorType: vendorType,
+            vendorName: vendorName,
             description: description,
             email: email,
             State: state,
@@ -68,7 +70,10 @@ $(document).ready(function () {
                 console.log("good");
                 var fullName = result.fullName;
                 //getVendorInfor(fullName);
-                window.location.replace("/vendors/" + fullName);
+                // window.location.replace("/vendors/" + fullName);
+                var url = `document.location.href+&${fullName}`
+                        document.location = url;
+                });
             } else {
                 console.log("bad");
             }
