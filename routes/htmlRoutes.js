@@ -7,29 +7,7 @@ function randInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-<<<<<<< HEAD
-module.exports = function(app) {
-  // Load search page page
-  // Load 3 random sample cards
-  //sample_vendor referring to handlebars call {{#if sample_vendor}}
-  //Vendors referring to the name of the model
-app.get("/", (req, res) => {
-    db.Vendors.findById(randInt(1, 3)).then((vendor) => {
-        res.render('index', { sample_vendor: vendor });
-    });
-});
-//static log-in page
-  app.get("/login", (req, res) => {
-    res.render("login");
-  });
 
-
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
-};
-=======
 module.exports = function (app) {
     
    
@@ -196,4 +174,4 @@ app.get("/register", (req, res) => {
 
     };
 
->>>>>>> 8df9d048dc58f9be7a6ba1b46b73490ee322bbe0
+
