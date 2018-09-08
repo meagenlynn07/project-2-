@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+
+//allow for sequelize operators
 const op = Sequelize.Op;
 const operatorsAliases = {
     $eq: op.eq,
@@ -16,11 +18,11 @@ const config = require(__dirname + '/../config/config.json')[env];
 console.log(config);
 const db = {};
 
-let sequelize;
+let connection;
 if (config.use_env_constiable) {
-   sequelize = new Sequelize(process.env[config.use_env_constiable]);
+   connection = new Sequelize(process.env[config.use_env_constiable]);
 } else {
-   sequelize = new Sequelize(
+   connection = new Sequelize(
     config.database,
     config.username,
     config.password,
@@ -30,7 +32,7 @@ if (config.use_env_constiable) {
 
 // if (process.env.NODE_ENV === 'test') {
 //   console.log('[test] using in memory database');
-//   sequelize = new Sequelize('marbles-site-db', null, null, {
+//   connection = new Sequelize('marbles-site-db', null, null, {
 //     dialect: 'sqlite',
 //     storage: ':memory:'
 //   });
@@ -38,7 +40,7 @@ if (config.use_env_constiable) {
 //   var match = process.env.HEROKU_POSTGRESQL_WHITE_URL
 //                 .match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
 
-//   sequelize = new Sequelize(match[5], match[1], match[2], {
+//   connection = new Sequelize(match[5], match[1], match[2], {
 //     dialect: 'postgres',
 //     protocol: 'postgres',
 //     port: match[4],
@@ -46,7 +48,7 @@ if (config.use_env_constiable) {
 //     logging: true // false
 //   });
 // } else {
-//   sequelize = new Sequelize('marbles-site-db', null, null, {
+//   connection = new Sequelize('marbles-site-db', null, null, {
 //     dialect: 'sqlite',
 //     storage: './db/development.sqlite'
 //   });
@@ -60,7 +62,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function(file) {
-    const model = sequelize.import(path.join(__dirname, file));
+    const model = connection.import(path.join(__dirname, file));
     db[model.name] = model;
   });
 
@@ -70,10 +72,10 @@ Object.keys(db).forEach(function(modelName) {
   }
 });
 
-db.sequelize = sequelize;
+db.connection = connection;
 db.Sequelize = Sequelize;
 
 
-db.vendor = require('./vendor')(sequelize, Sequelize);
+db.vendor = require('./vendor')(connection, Sequelize);
 
 module.exports = db;

@@ -1,7 +1,7 @@
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (connection, DataTypes) {
 
-    const Vendor = sequelize.define("Vendor", {
+    const Vendor = connection.define("Vendor", {
        firstName: {
             type: DataTypes.STRING,
             allowNull: false,

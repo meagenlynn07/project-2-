@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) => {
-  var Login = sequelize.define('Login', {
+module.exports = (connection, DataTypes) => {
+  var Login = connection.define('Login', {
     
       EmailAddress: {
           type: DataTypes.STRING,
