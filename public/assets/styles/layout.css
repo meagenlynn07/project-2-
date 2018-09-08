@@ -72,7 +72,7 @@ File: Layout CSS
 #introblocks > ul{display:block; margin:-200px 0 80px;}
 #introblocks > ul > li{text-align:center;}
 #introblocks > ul > li > article{display:inline-block; width:100%; max-width:320px; text-align:left;}
-#introblocks > ul > li > article > div{padding:30px 20px;}
+/* #introblocks > ul > li > article > div{padding:30px 20px;} */
 #introblocks > ul > li > article > div *{margin:0; padding:0;}
 #introblocks > ul > li > article > div .heading{margin-bottom:10px; font-size:1.2rem;}
 #introblocks > ul > li > article footer{border-top:1px solid;}
